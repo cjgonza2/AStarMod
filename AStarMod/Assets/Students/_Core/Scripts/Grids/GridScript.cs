@@ -41,6 +41,10 @@ public class GridScript : MonoBehaviour {
 					quad.transform.localScale = new Vector3(spacing, spacing, spacing);
 					quad.transform.position = new Vector3(offsetX + x * spacing, 
 					                                      offsetY - y * spacing, 0);
+					//adds a box collider to the quad.
+					quad.AddComponent<BoxCollider2D>();
+					quad.AddComponent<CamNateMouseClick>();
+					CamNateMouseClick.matS
 
 					quad.transform.parent = transform;
 

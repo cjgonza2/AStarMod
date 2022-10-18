@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792175002}
-  - component: {fileID: 1792175001}
+  - component: {fileID: 1792175003}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -233,35 +233,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1792175001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792175000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48fb1ee5cc40f4a5287bfe4a72f29e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridWidth: 0
-  gridHeight: 0
-  spacing: 6
-  mats:
-  - {fileID: 2100000, guid: 991fd2620a7dd4f75bf7fc92e51d2ec9, type: 2}
-  - {fileID: 2100000, guid: f8592f830cb1d45f3be75c344c7882a0, type: 2}
-  - {fileID: 2100000, guid: 2a4020c9625aa43929473720fb82aa7a, type: 2}
-  - {fileID: 2100000, guid: 5d06d31200aec4a918715fff1743e4bd, type: 2}
-  costs:
-  - 0.245
-  - 3
-  - 10
-  - 20
-  start: {x: 0, y: 14, z: 0}
-  goal: {x: 20, y: 0, z: 0}
-  startSprite: {fileID: 2036897189}
-  goalSprite: {fileID: 1954945764}
 --- !u!4 &1792175002
 Transform:
   m_ObjectHideFlags: 0
@@ -277,6 +248,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792175003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792175000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe67da6f493c5474ab343bff6bd26fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridWidth: 0
+  gridHeight: 0
+  spacing: 6
+  mats:
+  - {fileID: 2100000, guid: 991fd2620a7dd4f75bf7fc92e51d2ec9, type: 2}
+  - {fileID: 2100000, guid: f8592f830cb1d45f3be75c344c7882a0, type: 2}
+  - {fileID: 2100000, guid: 2a4020c9625aa43929473720fb82aa7a, type: 2}
+  - {fileID: 2100000, guid: 5d06d31200aec4a918715fff1743e4bd, type: 2}
+  costs:
+  - 0.245
+  - 3
+  - 10
+  - 20
+  start: {x: 1, y: 1, z: 0}
+  goal: {x: 3, y: 5, z: 0}
+  startSprite: {fileID: 2036897189}
+  goalSprite: {fileID: 1954945764}
 --- !u!1 &1954945764
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +503,6 @@ PrefabInstance:
     - target: {fileID: 2957381549546245279, guid: 29131d1817d8c9245924896c62f1bc87, type: 3}
       propertyPath: gridScript
       value: 
-      objectReference: {fileID: 1792175001}
+      objectReference: {fileID: 1792175003}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29131d1817d8c9245924896c62f1bc87, type: 3}
