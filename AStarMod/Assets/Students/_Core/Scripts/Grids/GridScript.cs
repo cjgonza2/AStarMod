@@ -43,8 +43,11 @@ public class GridScript : MonoBehaviour {
 					                                      offsetY - y * spacing, 0);
 					//adds a box collider to the quad.
 					quad.AddComponent<BoxCollider2D>();
+					//adds our mouse click scipt to generated quad.
 					quad.AddComponent<CamNateMouseClick>();
-					CamNateMouseClick.matS
+					//assigns the x,y quad coordinates to the selected mat coordinates. 
+					quad.GetComponent<CamNateMouseClick>().selectedMat = new Vector3(x, y);
+
 
 					quad.transform.parent = transform;
 

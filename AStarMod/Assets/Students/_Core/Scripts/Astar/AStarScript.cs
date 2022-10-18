@@ -12,6 +12,7 @@ public class AStarScript : MonoBehaviour {
 	//Assign class references to GridScript & Heurisitc Script.
 	public GridScript gridScript;
 	public CamNateHueristic hueristic;
+	public FollowAStarScript followAstar;
 	
 	//Variables that determine the size of the Grid.
 	protected int gridWidth;
@@ -39,11 +40,13 @@ public class AStarScript : MonoBehaviour {
 	List<Vector3> visited = new List<Vector3>();
 
 	// Use this for initialization
-	protected virtual void Start () {
-		InitAstar(); //Initializes A*
+	protected virtual void Start ()
+	{
+		followAstar = GameObject.Find("Princess").GetComponent<FollowAStarScript>();
+		//InitAstar(); //Initializes A*
 	}
 
-	protected virtual void InitAstar(){
+	public virtual void InitAstar(){
 		InitAstar(new Path(hueristic.gameObject.name, gridScript)); //Initializes A* based on hueristic parameters?
 	}
 
@@ -101,6 +104,8 @@ public class AStarScript : MonoBehaviour {
 			for(int y = -1; y < 2; y+=2){
 				AddNodesToFrontier((int)current.x, (int)current.y + y);
 			}
+			
+			followAstar.SetPath();
 		}
 		
 		//once we break out of the looop set current equal to goal. 

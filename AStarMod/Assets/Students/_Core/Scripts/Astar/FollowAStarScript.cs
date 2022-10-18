@@ -20,6 +20,10 @@ public class FollowAStarScript : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start () {
+	}
+
+	public void SetPath()
+	{
 		path = astar.path;
 		startPos = path.Get(0);
 		destPos  = path.Get(currentStep);
@@ -29,8 +33,8 @@ public class FollowAStarScript : MonoBehaviour {
 //		Debug.Log(path.nodeInspected/100f);
 
 		Invoke("StartMove", path.nodeInspected/100f);
-
 		startTime = Time.realtimeSinceStartup;
+
 	}
 	
 	// Update is called once per frame

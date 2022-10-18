@@ -8,7 +8,7 @@ public class CamNateMouseClick : MonoBehaviour
     public GridScript gridScript;
     public AStarScript aStar;
     
-    private Vector3 selectedMat;
+    public Vector3 selectedMat;
 
     private void Start()
     {
@@ -19,7 +19,9 @@ public class CamNateMouseClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //gridScript.goal = selectedMat;
-        //InitAstar();
+        Debug.Log(selectedMat);
+        gridScript.goal = selectedMat;
+        Debug.Log(gridScript.goal);
+        aStar.InitAstar();
     }
 }
