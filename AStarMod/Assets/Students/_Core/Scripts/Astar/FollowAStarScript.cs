@@ -6,12 +6,12 @@ public class FollowAStarScript : MonoBehaviour {
 
 	protected bool move = false;
 
-	protected Path path;
+	public Path path;
 	public AStarScript astar;
 	public Step startPos;
 	public Step destPos;
 
-	protected int currentStep = 1;
+	public int currentStep = 1;
 
 	protected float lerpPer = 0;
 	
@@ -20,21 +20,13 @@ public class FollowAStarScript : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start () {
-	}
-
-	public void SetPath()
-	{
-		path = astar.path;
-		startPos = path.Get(0);
-		destPos  = path.Get(currentStep);
-
-		transform.position = startPos.gameObject.transform.position;
-
+		
+		transform.position = astar.gridScript.start;
 //		Debug.Log(path.nodeInspected/100f);
 
-		Invoke("StartMove", path.nodeInspected/100f);
-		startTime = Time.realtimeSinceStartup;
+		//
 
+		startTime = Time.realtimeSinceStartup;
 	}
 	
 	// Update is called once per frame
@@ -65,7 +57,16 @@ public class FollowAStarScript : MonoBehaviour {
 		}
 	}
 
-	protected virtual void StartMove(){
+	public void WaitToMove()
+	{
+		Invoke("StartMove", 1);
+	}
+
+	public virtual void StartMove(){
+		path = astar.path;
+		currentStep = 1;
+		startPos = path.Get(0);
+		destPos  = path.Get(currentStep);
 		move = true;
 		travelStartTime = Time.realtimeSinceStartup;
 	}

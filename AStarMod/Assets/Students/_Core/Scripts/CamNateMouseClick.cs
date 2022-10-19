@@ -7,6 +7,7 @@ public class CamNateMouseClick : MonoBehaviour
 {
     public GridScript gridScript;
     public AStarScript aStar;
+    public FollowAStarScript followAStarScript;
     
     public Vector3 selectedMat;
 
@@ -15,13 +16,23 @@ public class CamNateMouseClick : MonoBehaviour
         //assings grid and a star script by finding the grid and princess object.
         gridScript = GameObject.Find("Grid").GetComponent<CamNateFirstGrid>();
         aStar = GameObject.Find("Princess").GetComponent<AStarScript>();
+        followAStarScript = GameObject.Find("Princess").GetComponent<FollowAStarScript>();
     }
 
     private void OnMouseDown()
     {
         Debug.Log(selectedMat);
         gridScript.goal = selectedMat;
-        Debug.Log(gridScript.goal);
+        if (followAStarScript.path == null)
+        {
+            
+        }
+        else
+        {
+            gridScript.start = followAStarScript.path.Get(followAStarScript.currentStep).gridPos;
+        }
+
         aStar.InitAstar();
+        followAStarScript.WaitToMove();
     }
 }

@@ -17,9 +17,13 @@ public class GridScript : MonoBehaviour {
 	
 	public GameObject startSprite;
 	public GameObject goalSprite;
+	
+	public AStarScript aStar;
+	public FollowAStarScript followAStarScript;
 
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -41,15 +45,18 @@ public class GridScript : MonoBehaviour {
 					quad.transform.localScale = new Vector3(spacing, spacing, spacing);
 					quad.transform.position = new Vector3(offsetX + x * spacing, 
 					                                      offsetY - y * spacing, 0);
-					//adds a box collider to the quad.
-					quad.AddComponent<BoxCollider2D>();
+					
 					//adds our mouse click scipt to generated quad.
 					quad.AddComponent<CamNateMouseClick>();
 					//assigns the x,y quad coordinates to the selected mat coordinates. 
 					quad.GetComponent<CamNateMouseClick>().selectedMat = new Vector3(x, y);
-
-
+					
 					quad.transform.parent = transform;
+
+					if (x == start.x && y == start.y)
+					{
+						followAStarScript.startPos = new Step(quad, 0.245f);
+					}
 
 					gridArray[x, y] = quad;
 					
