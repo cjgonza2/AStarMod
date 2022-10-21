@@ -67,6 +67,8 @@ public class GridScript : MonoBehaviour {
 					}
 					if(start.x == x && start.y == y){
 						startSprite.transform.position = quad.transform.position;
+						//set princess to the castle
+						aStar.gameObject.transform.position = quad.transform.position;
 					}
 				}
 			}

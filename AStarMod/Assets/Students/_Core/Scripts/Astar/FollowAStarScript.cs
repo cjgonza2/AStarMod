@@ -21,11 +21,6 @@ public class FollowAStarScript : MonoBehaviour {
 	// Use this for initialization
 	protected virtual void Start () {
 		
-		transform.position = astar.gridScript.start;
-//		Debug.Log(path.nodeInspected/100f);
-
-		//
-
 		startTime = Time.realtimeSinceStartup;
 	}
 	
@@ -43,6 +38,7 @@ public class FollowAStarScript : MonoBehaviour {
 				lerpPer = 0;
 
 				currentStep++;
+				Debug.Log("Next Step: " + currentStep);
 
 				if(currentStep >= path.steps){
 					currentStep = 0;
@@ -56,13 +52,10 @@ public class FollowAStarScript : MonoBehaviour {
 			}
 		}
 	}
-
-	public void WaitToMove()
-	{
-		Invoke("StartMove", 1);
-	}
-
+	
+	//Move the princess to the goal
 	public virtual void StartMove(){
+		//Init variables
 		path = astar.path;
 		currentStep = 1;
 		startPos = path.Get(0);

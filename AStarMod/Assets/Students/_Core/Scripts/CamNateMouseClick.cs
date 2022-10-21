@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//assign to every quad when set up tiles
 public class CamNateMouseClick : MonoBehaviour
 {
     public GridScript gridScript;
@@ -18,21 +19,15 @@ public class CamNateMouseClick : MonoBehaviour
         aStar = GameObject.Find("Princess").GetComponent<AStarScript>();
         followAStarScript = GameObject.Find("Princess").GetComponent<FollowAStarScript>();
     }
-
+    
+    //when player clicks on the quad mesh collider
     private void OnMouseDown()
     {
-        Debug.Log(selectedMat);
+        //set goal to the quad clicked
         gridScript.goal = selectedMat;
-        if (followAStarScript.path == null)
-        {
-            
-        }
-        else
-        {
-            gridScript.start = followAStarScript.path.Get(followAStarScript.currentStep).gridPos;
-        }
-
+        //find the path
         aStar.InitAstar();
-        followAStarScript.WaitToMove();
+        //move the princess
+        followAStarScript.StartMove();
     }
 }

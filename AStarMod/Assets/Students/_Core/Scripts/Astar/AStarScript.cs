@@ -53,6 +53,7 @@ public class AStarScript : MonoBehaviour {
 	//this is the actual InitAstar function. this is being called for every path checked on the grid.
 	protected virtual void InitAstar(Path path)
 	{
+		//Init variables
 		this.path = new Path("1",gridScript);
 		cameFrom = new Dictionary<Vector3, Vector3>();
 		costSoFar = new Dictionary<Vector3, float>();
@@ -61,6 +62,7 @@ public class AStarScript : MonoBehaviour {
 
 		//Saves start and end vectors from grid script. 
 		start = gridScript.start;
+		Debug.Log("start " + start);
 		goal = gridScript.goal;
 		
 		//Saves grid parameters as is determined by whats stated in gridScript.
@@ -91,8 +93,8 @@ public class AStarScript : MonoBehaviour {
 			visited.Add(current);
 
 			//changes the scale of explored nodes, to indicate they've been checked. 
-			pos[(int)current.x, (int)current.y].transform.localScale = 
-				Vector3.Scale(pos[(int)current.x, (int)current.y].transform.localScale, new Vector3(.8f, .8f, .8f));
+			//pos[(int)current.x, (int)current.y].transform.localScale = 
+				//Vector3.Scale(pos[(int)current.x, (int)current.y].transform.localScale, new Vector3(.8f, .8f, .8f));
 
 			//if the current node is the goal.
 			if(current.Equals(goal)){
@@ -129,6 +131,7 @@ public class AStarScript : MonoBehaviour {
 			path.Insert(0, go, new Vector3((int)current.x, (int)current.y));
 
 			current = cameFrom[current];
+			//Debug.Log("current " + cameFrom[current] );
 
 			Vector3 vec = Util.clone(go.transform.position);
 			vec.z = -1;
@@ -141,9 +144,9 @@ public class AStarScript : MonoBehaviour {
 		path.Insert(0, pos[(int)current.x, (int)current.y]);
 		path.nodeInspected = exploredNodes;
 		
-		Debug.Log(path.pathName + " Terrian Score: " + score);
-		Debug.Log(path.pathName + " Nodes Checked: " + exploredNodes);
-		Debug.Log(path.pathName + " Total Score: " + (score + exploredNodes));
+		//Debug.Log(path.pathName + " Terrian Score: " + score);
+		//Debug.Log(path.pathName + " Nodes Checked: " + exploredNodes);
+		//Debug.Log(path.pathName + " Total Score: " + (score + exploredNodes));
 	}
 
 	void AddNodesToFrontier(int x, int y){
@@ -159,6 +162,7 @@ public class AStarScript : MonoBehaviour {
 
 				frontier.Enqueue(next, priority);
 				cameFrom[next] = current;
+				Debug.Log("next: " + current);
 			}
 		}
 	}

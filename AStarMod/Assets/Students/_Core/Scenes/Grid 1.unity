@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -185,7 +185,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 70
+  orthographic size: 40
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -273,10 +273,12 @@ MonoBehaviour:
   - 3
   - 10
   - 20
-  start: {x: 1, y: 1, z: 0}
+  start: {x: 2, y: 2, z: 0}
   goal: {x: 3, y: 5, z: 0}
   startSprite: {fileID: 2036897189}
   goalSprite: {fileID: 1954945764}
+  aStar: {fileID: 0}
+  followAStarScript: {fileID: 0}
 --- !u!1 &1954945764
 GameObject:
   m_ObjectHideFlags: 0

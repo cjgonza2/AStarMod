@@ -24,7 +24,7 @@ public class CamNateFirstGrid : GridScript
 		gridHeight = gridString.Length;
 		aStar = GameObject.Find("Princess").GetComponent<AStarScript>();
 		followAStarScript = GameObject.Find("Princess").GetComponent<FollowAStarScript>();
-		aStar.current = start;
+		//aStar.current = start;
 	}
 	
 	// Update is called once per frame
